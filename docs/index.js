@@ -43,7 +43,7 @@ Index.prototype = {
 	},
 	initAR() {
 		// 初始化AR视觉控件
-  		// this.effect = new THREE.VREffect(this.renderer);
+  		this.effect = new THREE.VREffect(this.renderer);
   		this.controls = new THREE.VRControls(this.camera);
   		// this.controls.standing = true;
 
@@ -230,7 +230,7 @@ Index.prototype = {
 		var render = function() {
 			if(!!self.Man)self.Man.rotation.z += 0.01;
 			self.gaze();
-			self.renderer.render(self.scene,self.camera);
+			self.effect.render(self.scene, self.camera);
 			self.gaze();
 			self.controls.update();
 			requestAnimationFrame(render);
