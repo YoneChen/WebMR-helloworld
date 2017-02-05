@@ -21,15 +21,15 @@ canvas {
 video {
 	z-index: -1;
 	position: absolute;
-    width: 50%;
+    height: 100%;
 }
 .video-left {
     top: 0;
-    left: 0;
+    right: 50%;
 }
 .video-right {
     top: 0;
-    right: 0;
+    left: 50%;
 }
 .loading-mask {
 	position: absolute;
