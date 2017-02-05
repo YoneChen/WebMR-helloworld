@@ -1,0 +1,99 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+html,body {
+	// height: 100%;
+}
+body {
+	font-size: 14px;
+	font-family: "Arial","Microsoft YaHei","黑体",sans-serif;
+	overflow: hidden;
+	position: relative;
+}
+.main-page {
+	position: relative;
+	// height: 100%;
+}
+canvas {
+}
+video {
+	z-index: -1;
+	position: absolute;
+    width: 50%;
+}
+.video-left {
+    top: 0;
+    left: 0;
+}
+.video-right {
+    top: 0;
+    right: 0;
+}
+.loading-mask {
+	position: absolute;
+	top:0;
+	right: 0;
+	bottom:0;
+	left: 0;
+	z-index:1;
+	background-color: #333;
+}
+.loading {
+	width: 100px;
+	height: 100px;
+	border: dotted 8px #1ccece;
+	border-radius: 50%;
+	border-color: rgba(6,245,250,0.2) rgba(6,245,250,0.4) rgba(6,245,250,0.7) rgba(6,245,250,0.9);
+}
+.loading-animation {
+
+	animation: loading 2s linear infinite;
+	-webkit-animation: loading 2s linear infinite;
+}
+@keyframes loading {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes loading {
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(360deg);
+	}
+}
+.flex-box{
+    display: -webkit-box;
+    display: -webkit-flex;
+
+    display: -moz-box;
+    display: -moz-flex;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    /* 水平居中*/
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-pack:center;/* IE 10 */
+
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;/* IE 11+,Firefox 22+,Chrome 29+,Opera 12.1*/
+
+    /* 垂直居中 */
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-align:center;/* IE 10 */
+
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+}
