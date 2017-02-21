@@ -129,7 +129,7 @@ Index.prototype = {
                          navigator.mozGetUserMedia;
 		var exArray = []; //存储设备源ID 
 		if (navigator.getUserMedia) { 
-			MediaStreamTrack.getSources(function (sourceInfos) { 
+			navigator.mediaDevices.enumerateDevices().then(function (sourceInfos) { 
 				var _self = self;
 		 		for (var i = 0; i != sourceInfos.length; ++i) { 
 		 			var sourceInfo = sourceInfos[i]; 
