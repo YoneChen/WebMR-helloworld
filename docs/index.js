@@ -129,16 +129,28 @@ Index.prototype = {
                          navigator.mozGetUserMedia;
 		var exArray = []; //存储设备源ID 
 		if (navigator.getUserMedia) { 
+			MediaStreamTrack.getSources(function (sourceInfos) { 
+				var _self = self;
+		 		for (var i = 0; i != sourceInfos.length; ++i) { 
+		 			var sourceInfo = sourceInfos[i]; 
+		 			//这里会遍历audio,video，所以要加以区分 
+		 			if (sourceInfo.kind === 'video') { 
+		 				exArray.push(sourceInfo.id); 
+		 			} 
+		 		}
 		 		navigator.getUserMedia({ 
-		 			'video': { facingMode: { exact: "environment" } } ,
+		 			'video': { 
+		 				'optional': [{ 'sourceId': exArray[1] }] //0为前置摄像头，1为后置 
+					},
 		 			'audio':false 
 			 		}, function(stream) {
-	            		self.videoLeft.src = webkitURL.createObjectURL(stream);
-	            		self.videoRight.src = webkitURL.createObjectURL(stream);
+	            		_self.videoLeft.src = webkitURL.createObjectURL(stream);
+	            		_self.videoRight.src = webkitURL.createObjectURL(stream);
 			      	}, function(err) {
 				         console.log("The following error occurred: " + err.name);
 				    }
 		      	); 
+		 	});
 		}
 	},
 	createLight: function() {
